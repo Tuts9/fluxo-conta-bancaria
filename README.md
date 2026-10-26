@@ -32,7 +32,7 @@ A virada é o dia em que o sistema passa a controlar as contas. Ela é feita uma
 1. **A data de corte** (explicada logo abaixo). Exemplo: 01/11/2026.
 2. **O saldo de cada conta** (PagBank, Nubank e Ton) no fim do dia anterior à data de corte, como aparece no app do banco.
 3. **O "a receber" de cada máquina de cartão**: vendas já feitas que a operadora ainda não depositou, pelo valor líquido (já sem a taxa). Aparece no app da máquina.
-4. **O dinheiro da gaveta**, contado no fechamento do caixa.
+4. **O dinheiro em mãos**: o da gaveta, contado no fechamento do caixa, e o do cofre (o dinheiro guardado fora da gaveta), contado também.
 
 ## A data de corte
 
@@ -92,16 +92,18 @@ Em **Nova conta**, cadastre cada conta:
 
 O caixa físico já existe e é de Despesas.
 
-1. No último dia antes da data de corte, **feche o caixa** contando o dinheiro.
-2. No dia de corte, **abra o caixa** com esse mesmo valor.
-3. Em **Contas bancárias**, clique em **Editar** no caixa físico. Preencha **Saldo inicial** com todo o dinheiro em mãos e **Data do saldo inicial** com a data de corte.
+1. No último dia antes da data de corte, **feche o caixa** contando o dinheiro da gaveta. Conte também o dinheiro do cofre.
+2. No dia de corte, **abra o caixa** com o valor contado na gaveta. Esse valor vira a **gaveta** no sistema.
+3. Em **Contas bancárias**, clique em **Editar** no caixa físico. Preencha **Saldo inicial** com todo o dinheiro em mãos (gaveta + cofre) e **Data do saldo inicial** com a data de corte. Exemplo: R$ 150 na gaveta e R$ 1.402,05 no cofre dão R$ 1.552,05.
 
-O saldo do caixa físico é todo o dinheiro em mãos: o saldo inicial mais as vendas e contas pagas em dinheiro e as transferências desde a data de corte. Ele pertence a Despesas e fica dividido em duas partes, que aparecem em **Contas bancárias** e em **Caixa físico**:
+O saldo inicial não deve ser menor que a gaveta: o sistema aceita, mas o cofre fica negativo (em vermelho). A sobra ou a quebra do fechamento do passo 1 não conta, porque é de antes da data de corte.
+
+O saldo do caixa físico é todo o dinheiro em mãos: o saldo inicial mais as vendas em dinheiro com o caixa aberto, as contas pagas pelo cofre ou pela gaveta e as transferências desde a data de corte. Ele pertence a Despesas e fica dividido em duas partes, que aparecem em **Contas bancárias** e em **Caixa físico**:
 
 - **Gaveta:** o dinheiro do caixa aberto, para troco. Com o caixa fechado, é o valor contado no último fechamento.
 - **Cofre:** o resto do dinheiro em mãos (em mãos menos a gaveta).
 
-Abrir o caixa, sangrias e suprimentos feitos direto no caixa só passam dinheiro entre a gaveta e o cofre: abrir o caixa com mais do que foi contado no último fechamento tira a diferença do cofre; um suprimento tira do cofre e uma sangria devolve ao cofre. A sobra ou a quebra do fechamento entra no dinheiro em mãos. Para o dinheiro sair do caixa físico, lance uma conta paga ou uma transferência.
+Abrir o caixa, sangrias e suprimentos feitos direto no caixa só passam dinheiro entre a gaveta e o cofre: abrir o caixa com mais do que foi contado no último fechamento tira a diferença do cofre; um suprimento tira do cofre e uma sangria devolve ao cofre. A sobra ou a quebra do fechamento entra no dinheiro em mãos. Para o dinheiro sair do caixa físico, lance uma conta paga (pelo cofre ou pela gaveta) ou uma transferência (sai da gaveta, com o caixa aberto).
 
 ### Passo 5: Destino dos recebimentos
 
@@ -130,7 +132,7 @@ Esse passo vem depois do passo 5 porque usa as regras de destino.
 
 ### Passo 7: Conferir
 
-- **Contas bancárias:** cada conta mostra o saldo inicial que você informou, mais o que aconteceu desde a data de corte. O caixa físico também.
+- **Contas bancárias:** cada conta mostra o saldo inicial que você informou, mais o que aconteceu desde a data de corte. O caixa físico também, com a gaveta igual ao valor de abertura do caixa e o cofre com o resto.
 - **Repasses entre contas:** "Está nas contas" igual a "Pertence às destinações", sem aviso amarelo.
 - **Destinações:** cada uma com 80% e 20% do saldo inicial da conta dela.
 
@@ -143,7 +145,7 @@ Valores de exemplo, com data de corte 01/11 e saldos anotados no fim do dia 31/1
 | PagBank | R$ 1.000 | R$ 200 | R$ 1.200 | Caixa operacional | R$ 960 | R$ 240 |
 | Nubank | R$ 3.000 | — | R$ 3.000 | Reserva de emergência | R$ 2.400 | R$ 600 |
 | Ton | R$ 500 | R$ 300 | R$ 800 | Investimentos | R$ 640 | R$ 160 |
-| Caixa físico | R$ 150 contados | — | R$ 150 | Despesas | R$ 120 | R$ 30 |
+| Caixa físico | R$ 150 contados na gaveta, nada no cofre | — | R$ 150 | Despesas | R$ 120 | R$ 30 |
 
 No dia 01/11, o caixa é aberto com R$ 150, e o painel de Repasses mostra R$ 5.150 nas contas e R$ 5.150 pertencendo às destinações.
 
