@@ -94,9 +94,9 @@ O caixa físico já existe e é de Despesas.
 
 1. No último dia antes da data de corte, **feche o caixa** contando o dinheiro.
 2. No dia de corte, **abra o caixa** com esse mesmo valor.
-3. Em **Contas bancárias**, clique em **Editar** no caixa físico. Preencha **Saldo inicial dos potes** com o mesmo valor e **Data do saldo inicial** com a data de corte.
+3. Em **Contas bancárias**, clique em **Editar** no caixa físico. Preencha **Saldo inicial** com todo o dinheiro em mãos e **Data do saldo inicial** com a data de corte.
 
-O dinheiro da gaveta continua vindo da abertura e do fechamento do caixa. O Saldo inicial dos potes só diz que esse dinheiro pertence a Despesas.
+O saldo do caixa físico é todo o dinheiro em mãos: o saldo inicial mais as vendas e contas pagas em dinheiro e as transferências desde a data de corte. Ele pertence a Despesas. Abrir e fechar o caixa só confere a gaveta e não muda esse saldo; sangrias e suprimentos feitos direto no caixa também só acertam a gaveta. Para o dinheiro sair do caixa físico, lance uma conta paga ou uma transferência.
 
 ### Passo 5: Destino dos recebimentos
 
@@ -125,7 +125,7 @@ Esse passo vem depois do passo 5 porque usa as regras de destino.
 
 ### Passo 7: Conferir
 
-- **Contas bancárias:** cada conta mostra o saldo inicial que você informou, mais o que aconteceu desde a data de corte. O caixa físico mostra o dinheiro da gaveta.
+- **Contas bancárias:** cada conta mostra o saldo inicial que você informou, mais o que aconteceu desde a data de corte. O caixa físico também.
 - **Repasses entre contas:** "Está nas contas" igual a "Pertence às destinações", sem aviso amarelo.
 - **Destinações:** cada uma com 80% e 20% do saldo inicial da conta dela.
 
@@ -138,7 +138,7 @@ Valores de exemplo, com data de corte 01/11 e saldos anotados no fim do dia 31/1
 | PagBank | R$ 1.000 | R$ 200 | R$ 1.200 | Caixa operacional | R$ 960 | R$ 240 |
 | Nubank | R$ 3.000 | — | R$ 3.000 | Reserva de emergência | R$ 2.400 | R$ 600 |
 | Ton | R$ 500 | R$ 300 | R$ 800 | Investimentos | R$ 640 | R$ 160 |
-| Caixa físico | R$ 150 contados | — | R$ 150 (potes) | Despesas | R$ 120 | R$ 30 |
+| Caixa físico | R$ 150 contados | — | R$ 150 | Despesas | R$ 120 | R$ 30 |
 
 No dia 01/11, o caixa é aberto com R$ 150, e o painel de Repasses mostra R$ 5.150 nas contas e R$ 5.150 pertencendo às destinações.
 
@@ -156,7 +156,7 @@ No dia 01/11, o caixa é aberto com R$ 150, e o painel de Repasses mostra R$ 5.1
 
 **Cancelei uma venda de antes da data de corte e devolvi o dinheiro.** O cancelamento não mexe nos saldos, porque a venda era de antes. Lance a devolução como conta a pagar e pague pela conta de onde o dinheiro saiu.
 
-**Repasses mostra uma diferença entre o que está nas contas e o que pertence.** Confira o **Saldo inicial dos potes** do caixa físico e se o caixa foi aberto no dia de corte com o valor contado. Se a tela avisar de pagamentos ainda não divididos, faça o passo 6. Sangrias e suprimentos feitos direto no caixa mudam só o dinheiro, não a quem ele pertence.
+**Repasses mostra uma diferença entre o que está nas contas e o que pertence.** Se a tela avisar de pagamentos ainda não divididos, faça o passo 6.
 
 ## No dia a dia
 
@@ -246,9 +246,9 @@ O valor sai do disponível de quem passa e, se não bastar, da segurança, com u
 
 **O disponível de uma destinação ficou negativo. Fiz algo errado?** Não. Os gastos ou remanejamentos passaram do que ela tinha; o sistema registra e avisa. O disponível volta a subir com as próximas vendas. Também acontece quando uma venda é cancelada depois de o dinheiro dela já ter sido gasto.
 
-**Recebi em dinheiro com o caixa fechado. E agora?** Esse valor não entrou no saldo do caixa. Abra o caixa e registre um suprimento com o valor recebido.
+**Recebi em dinheiro com o caixa fechado. E agora?** Esse valor não entrou em nenhuma conta. Abra o caixa e registre um suprimento com o valor recebido para a gaveta bater. Para ele aparecer no caixa físico em Contas bancárias, some o valor ao **Saldo inicial** do caixa físico.
 
-**Um pagamento antigo saiu do caixa sem eu querer.** Antes desta versão, pagar uma conta com o caixa aberto descontava do caixa automaticamente. Para corrigir o saldo, registre um suprimento no caixa com o mesmo valor.
+**Um pagamento antigo saiu do caixa sem eu querer.** Antes desta versão, pagar uma conta com o caixa aberto descontava do caixa automaticamente. Para a gaveta bater, registre um suprimento no caixa com o mesmo valor. Se o caixa físico em Contas bancárias também ficou menor, corrija o **Saldo inicial** dele.
 
 **O Nubank tem mais dinheiro do que pertence à Reserva. Está errado?** Não. O Nubank guarda o lucro das vendas no Pix de todas as destinações. A lista de contas mostra o dinheiro; **Destinações** mostra a quem ele pertence.
 
