@@ -96,7 +96,12 @@ O caixa físico já existe e é de Despesas.
 2. No dia de corte, **abra o caixa** com esse mesmo valor.
 3. Em **Contas bancárias**, clique em **Editar** no caixa físico. Preencha **Saldo inicial** com todo o dinheiro em mãos e **Data do saldo inicial** com a data de corte.
 
-O saldo do caixa físico é todo o dinheiro em mãos: o saldo inicial mais as vendas e contas pagas em dinheiro e as transferências desde a data de corte. Ele pertence a Despesas. Abrir e fechar o caixa só confere a gaveta e não muda esse saldo; sangrias e suprimentos feitos direto no caixa também só acertam a gaveta. Para o dinheiro sair do caixa físico, lance uma conta paga ou uma transferência.
+O saldo do caixa físico é todo o dinheiro em mãos: o saldo inicial mais as vendas e contas pagas em dinheiro e as transferências desde a data de corte. Ele pertence a Despesas e fica dividido em duas partes, que aparecem em **Contas bancárias** e em **Caixa físico**:
+
+- **Gaveta:** o dinheiro do caixa aberto, para troco. Com o caixa fechado, é o valor contado no último fechamento.
+- **Cofre:** o resto do dinheiro em mãos (em mãos menos a gaveta).
+
+Abrir o caixa, sangrias e suprimentos feitos direto no caixa só passam dinheiro entre a gaveta e o cofre: abrir o caixa com mais do que foi contado no último fechamento tira a diferença do cofre; um suprimento tira do cofre e uma sangria devolve ao cofre. A sobra ou a quebra do fechamento entra no dinheiro em mãos. Para o dinheiro sair do caixa físico, lance uma conta paga ou uma transferência.
 
 ### Passo 5: Destino dos recebimentos
 
@@ -174,10 +179,14 @@ Quando estiver tudo em dia, aparece "Nenhum repasse pendente". Vendas na máquin
 
 Em **A pagar**, abra a conta e use **Registrar pagamento**:
 
-- **De qual conta saiu o dinheiro:** cada opção mostra o saldo. O caixa físico aceita só dinheiro e com o caixa aberto. "Fora das contas cadastradas" não mexe em saldo nenhum.
+- **De qual conta saiu o dinheiro:** cada opção mostra o saldo. O caixa físico aparece duas vezes, aceita só dinheiro e mostra quanto há em cada parte:
+  - **Cofre:** para contas pagas com o dinheiro guardado. Vale com o caixa aberto ou fechado, até o valor do cofre.
+  - **Gaveta:** só com o caixa aberto, até o dinheiro da gaveta.
+
+  Se a conta for maior que o cofre, use duas linhas de pagamento: uma saindo do cofre e outra da gaveta. Juntas, vão até o dinheiro em mãos. "Fora das contas cadastradas" não mexe em saldo nenhum.
 - **De qual destinação saiu o dinheiro:** já vem **Despesas**. Troque quando o gasto for de outra destinação. Cada opção mostra o disponível e a segurança.
 
-O valor sai do disponível da destinação; o que faltar sai da segurança, com um aviso. O pagamento nunca é bloqueado por isso (só o caixa físico, pelo dinheiro da gaveta). No detalhe aparece, por exemplo, "Saiu de PagBank · da destinação Despesas".
+O valor sai do disponível da destinação; o que faltar sai da segurança, com um aviso. O pagamento nunca é bloqueado por isso (só o caixa físico, pelo dinheiro do cofre ou da gaveta). No detalhe aparece, por exemplo, "Saiu de PagBank · da destinação Despesas" ou "Saiu de Conta 4 / Caixa físico (cofre)".
 
 **Avisos do mês:** quando uma destinação passa de **50%** e depois de **90%** do disponível do mês, aparece um aviso, por exemplo "Caixa operacional já usou 56% do disponível do mês (R$ 450,00 de R$ 800,00)". Acima de 100%, aparece "passou do disponível do mês". O disponível do mês é o que ela tinha no dia 1º mais o que entrou no mês. Contas pagas e remanejamentos contam como uso; o que sai da segurança não conta. Os avisos não bloqueiam nada e ficam na tela, em amarelo, até você clicar no X.
 
@@ -229,7 +238,7 @@ O valor sai do disponível de quem passa e, se não bastar, da segurança, com u
 
 ### Contas a pagar e a receber
 
-- **Pagamento não sai mais do caixa sozinho:** pagar uma conta com o caixa aberto não desconta do caixa, a menos que você escolha "Conta 4 / Caixa físico" (veja Pagar uma conta).
+- **Pagamento não sai mais do caixa sozinho:** pagar uma conta com o caixa aberto não desconta do caixa, a menos que você escolha o cofre ou a gaveta do "Conta 4 / Caixa físico" (veja Pagar uma conta).
 - **Filtro de vencimento:** nas listas A receber e A pagar, escolha Hoje, Esta semana, Este mês, Próximo mês, Mês anterior ou Personalizado. Funciona junto com o filtro de status.
 - **Datas personalizadas:** ao digitar uma data em qualquer filtro de período, o período muda sozinho para "Personalizado" e a data fica guardada depois de filtrar.
 - **Valor da despesa recorrente:** ao pagar uma parcela de despesa recorrente, o campo **Valor desta conta** permite mudar o valor daquele mês (por exemplo, a conta de luz). Marque **Usar este valor também nas próximas parcelas em aberto** para repetir o valor nos meses seguintes.
@@ -246,9 +255,9 @@ O valor sai do disponível de quem passa e, se não bastar, da segurança, com u
 
 **O disponível de uma destinação ficou negativo. Fiz algo errado?** Não. Os gastos ou remanejamentos passaram do que ela tinha; o sistema registra e avisa. O disponível volta a subir com as próximas vendas. Também acontece quando uma venda é cancelada depois de o dinheiro dela já ter sido gasto.
 
-**Recebi em dinheiro com o caixa fechado. E agora?** Esse valor não entrou em nenhuma conta. Abra o caixa e registre um suprimento com o valor recebido para a gaveta bater. Para ele aparecer no caixa físico em Contas bancárias, some o valor ao **Saldo inicial** do caixa físico.
+**Recebi em dinheiro com o caixa fechado. E agora?** Esse valor não entrou em nenhuma conta. Some o valor ao **Saldo inicial** do caixa físico: ele entra no cofre. Se o dinheiro foi para a gaveta, abra o caixa e registre um suprimento com o mesmo valor, que passa o dinheiro do cofre para a gaveta.
 
-**Um pagamento antigo saiu do caixa sem eu querer.** Antes desta versão, pagar uma conta com o caixa aberto descontava do caixa automaticamente. Para a gaveta bater, registre um suprimento no caixa com o mesmo valor. Se o caixa físico em Contas bancárias também ficou menor, corrija o **Saldo inicial** dele.
+**Um pagamento antigo saiu do caixa sem eu querer.** Antes desta versão, pagar uma conta com o caixa aberto descontava do caixa automaticamente. Se o caixa físico em Contas bancárias ficou menor, some o valor ao **Saldo inicial** dele. Depois, para a gaveta bater, registre um suprimento no caixa com o mesmo valor.
 
 **O Nubank tem mais dinheiro do que pertence à Reserva. Está errado?** Não. O Nubank guarda o lucro das vendas no Pix de todas as destinações. A lista de contas mostra o dinheiro; **Destinações** mostra a quem ele pertence.
 
